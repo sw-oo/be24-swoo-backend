@@ -6,7 +6,7 @@ import lombok.Getter;
 
 public class UserDto {
     @Getter
-    public static class Signup {
+    public static class SignupReq {
         String email;
         String name;
         String password;
@@ -16,6 +16,22 @@ public class UserDto {
                     .email(getEmail())
                     .name(getName())
                     .password(getPassword())
+                    .build();
+        }
+    }
+
+    @Builder
+    @Getter
+    public static class SignupRes {
+        Long idx;
+        String email;
+        String name;
+
+        public static SignupRes from(User entity) {
+            return SignupRes.builder()
+                    .idx(entity.getIdx())
+                    .email(entity.getEmail())
+                    .name(entity.getName())
                     .build();
         }
     }
