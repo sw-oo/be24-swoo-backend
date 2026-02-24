@@ -1,4 +1,4 @@
-package org.example.be24swoobackend.board.config;
+package org.example.be24swoobackend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
