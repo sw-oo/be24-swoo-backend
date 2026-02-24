@@ -28,4 +28,15 @@ public class BoardService {
     public BoardDto.Read findByTitle(String title) {
         return BoardDto.Read.from(boardRepository.findByTitle(title).orElseThrow());
     }
+
+    public void delete(Long idx) {
+        boardRepository.deleteById(idx);
+    }
+
+    public BoardDto.Read update(Long idx, BoardDto.Create dto) {
+        Board board = boardRepository.findById(idx).orElseThrow();
+        board.update(dto);
+        boardRepository.save(board);
+        return BoardDto.Read.from(board);
+    }
 }

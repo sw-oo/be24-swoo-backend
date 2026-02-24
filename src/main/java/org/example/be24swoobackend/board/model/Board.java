@@ -15,4 +15,9 @@ public class Board {
     Long idx;
     String title;
     String contents;
+
+    public void update(BoardDto.Create dto) {
+        this.title = dto.title;
+        this.contents = dto.contents;
+    }
 }
